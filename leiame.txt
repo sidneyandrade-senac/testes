@@ -1,0 +1,25 @@
+
+A biblioteca org.junit.jupiter.api fornece uma variedade de anotações e métodos que você pode usar 
+para escrever e executar testes unitários em Java. Aqui está uma lista de algumas das anotações e métodos 
+mais comuns que você pode usar:
+
+Anotações de teste:
+@Test: Indica que o método é um método de teste.
+@BeforeEach: Indica que o método deve ser executado antes de cada método de teste.
+@AfterEach: Indica que o método deve ser executado após cada método de teste.
+@BeforeAll: Indica que o método deve ser executado uma vez antes de todos os métodos de teste na classe.
+@AfterAll: Indica que o método deve ser executado uma vez após todos os métodos de teste na classe.
+@DisplayName: Define um nome personalizado para exibição do método de teste.
+
+Métodos de asserção:
+assertEquals(expected, actual): Verifica se dois valores são iguais.
+assertNotEquals(expected, actual): Verifica se dois valores não são iguais.
+assertTrue(condition): Verifica se uma condição é verdadeira.
+assertFalse(condition): Verifica se uma condição é falsa.
+assertNull(object): Verifica se um objeto é nulo.
+assertNotNull(object): Verifica se um objeto não é nulo.
+assertArrayEquals(expectedArray, actualArray): Verifica se dois arrays são iguais.
+assertThrows(exceptionType, executable): Verifica se um método lança uma exceção específica.
+
+comando para rodar o teste
+.\mvnw test
