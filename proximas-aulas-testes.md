@@ -928,44 +928,31 @@ src/
 │   │   ├── DemoApplication.java
 │   │   ├── controller/
 │   │   │   ├── ApiExceptionHandler.java          [aula 4]  exceção -> status HTTP
-│   │   │   ├── ClienteController.java
-│   │   │   ├── ContaController.java              [aula 4]  endpoints /contas
-│   │   │   └── UserController.java
+│   │   │   └── ContaController.java              [aula 4]  endpoints /contas
 │   │   ├── dto/
 │   │   │   ├── ContaDTO.java                     [aula 1]
 │   │   │   ├── CriarContaDTO.java                [aula 1]
 │   │   │   └── OperacaoDTO.java                  [aula 1]
 │   │   ├── entity/
 │   │   │   └── ContaBancaria.java                [aula 1]  as regras de negócio
-│   │   ├── model/
-│   │   │   ├── Cliente.java
-│   │   │   ├── Produto.java
-│   │   │   └── User.java
 │   │   ├── repository/
 │   │   │   └── ContaRepository.java              [aula 2]  extends JpaRepository
-│   │   ├── service/
-│   │   │   └── ContaService.java                 [aula 3]  orquestra: busca, regra, salva
-│   │   └── util/
-│   │       └── CalculaTotal.java
+│   │   └── service/
+│   │       └── ContaService.java                 [aula 3]  orquestra: busca, regra, salva
 │   └── resources/
-│       ├── application.properties
-│       └── clientes.json
+│       └── application.properties
 └── test/java/com/example/demo/
     ├── DemoApplicationTests.java
     ├── controller/
-    │   ├── ClienteControllerTest.java
-    │   ├── ContaControllerTest.java              [aula 4]  @WebMvcTest, 6 testes
-    │   └── UserControllerTest.java
+    │   └── ContaControllerTest.java              [aula 4]  @WebMvcTest, 6 testes
     ├── dto/
     │   └── ContaDTOTest.java                     [aula 1]  3 testes
     ├── entity/
     │   └── ContaBancariaTest.java                [aula 1]  19 testes (1 ignorado)
     ├── repository/
     │   └── ContaRepositoryTest.java              [aula 2]  @DataJpaTest, 5 testes
-    ├── service/
-    │   └── ContaServiceTest.java                 [aula 3]  Mockito, 8 testes
-    └── util/
-        └── CalcularProdutoTest.java
+    └── service/
+        └── ContaServiceTest.java                 [aula 3]  Mockito, 8 testes
 ```
 
 Cada aula só **acrescenta** arquivos. Nenhum arquivo marcado como `[aula 1]` é alterado nas aulas seguintes.
@@ -981,11 +968,11 @@ Rodando `.\mvnw test` com as quatro aulas:
 [INFO]    Tests run: 5,  Failures: 0, Errors: 0, Skipped: 0 -- in ...repository.ContaRepositoryTest
 [INFO]    Tests run: 8,  Failures: 0, Errors: 0, Skipped: 0 -- in ...service.ContaServiceTest
 ...
-[WARNING] Tests run: 51, Failures: 0, Errors: 0, Skipped: 1
+[WARNING] Tests run: 42, Failures: 0, Errors: 0, Skipped: 1
 [INFO] BUILD SUCCESS
 ```
 
-(Os 51 incluem os testes anteriores do projeto: `ClienteControllerTest`, `UserControllerTest`, `DemoApplicationTests` e `CalcularProdutoTest`.)
+(Os 42 incluem o `DemoApplicationTests`, que sobe a aplicação inteira e confere que o contexto do Spring carrega.)
 
 O `ContaBancariaTest` continua com os **mesmos 19 testes da aula 1**, sem nenhuma alteração.
 

@@ -18,6 +18,7 @@ Para rodar: `.\mvnw test`
 ```
 demo/
 ├── pom.xml                                       + spring-boot-starter-data-jpa e h2
+├── README.md                                     resumo do projeto e links
 ├── exemplo-didatico-testes.md                    material desta aula
 ├── proximas-aulas-testes.md                      material das aulas 2, 3 e 4
 ├── leiame.txt
@@ -32,50 +33,37 @@ demo/
 └── src/
     ├── main/
     │   ├── java/com/example/demo/
-    │   │   ├── DemoApplication.java              [slides]
+    │   │   ├── DemoApplication.java              [base]
     │   │   ├── controller/
     │   │   │   ├── ApiExceptionHandler.java      [aula 4]
-    │   │   │   ├── ClienteController.java        [slides]
-    │   │   │   ├── ContaController.java          [aula 4]
-    │   │   │   └── UserController.java           [slides]
+    │   │   │   └── ContaController.java          [aula 4]
     │   │   ├── dto/
     │   │   │   ├── ContaDTO.java                 [aula 1]  saída, com ContaDTO.de(conta)
     │   │   │   ├── CriarContaDTO.java            [aula 1]  entrada (usado a partir da aula 3)
     │   │   │   └── OperacaoDTO.java              [aula 1]  entrada (usado a partir da aula 3)
     │   │   ├── entity/
     │   │   │   └── ContaBancaria.java            [aula 1]  entity JPA com as regras
-    │   │   ├── model/
-    │   │   │   ├── Cliente.java                  [slides]
-    │   │   │   ├── Produto.java                  [slides]
-    │   │   │   └── User.java                     [slides]
     │   │   ├── repository/
     │   │   │   └── ContaRepository.java          [aula 2]
-    │   │   ├── service/
-    │   │   │   └── ContaService.java             [aula 3]
-    │   │   └── util/
-    │   │       └── CalculaTotal.java             [slides]
+    │   │   └── service/
+    │   │       └── ContaService.java             [aula 3]
     │   └── resources/
-    │       ├── application.properties            [slides]
-    │       └── clientes.json                     [slides]
+    │       └── application.properties            [base]
     └── test/java/com/example/demo/
-        ├── DemoApplicationTests.java             [slides]
+        ├── DemoApplicationTests.java             [base]
         ├── controller/
-        │   ├── ClienteControllerTest.java        [slides]
-        │   ├── ContaControllerTest.java          [aula 4]  6 testes
-        │   └── UserControllerTest.java           [slides]
+        │   └── ContaControllerTest.java          [aula 4]  6 testes
         ├── dto/
         │   └── ContaDTOTest.java                 [aula 1]  3 testes
         ├── entity/
         │   └── ContaBancariaTest.java            [aula 1]  19 testes (1 ignorado)
         ├── repository/
         │   └── ContaRepositoryTest.java          [aula 2]  5 testes
-        ├── service/
-        │   └── ContaServiceTest.java             [aula 3]  8 testes
-        └── util/
-            └── CalcularProdutoTest.java          [slides]
+        └── service/
+            └── ContaServiceTest.java             [aula 3]  8 testes
 ```
 
-- **[slides]**: arquivos reproduzidos dos prints do `Exemplos de testes.pptx` (inclui os arquivos padrão de um projeto Spring Initializr).
+- **[base]**: arquivos padrão de um projeto Spring Initializr (a classe principal, o `application.properties` e o teste que carrega o contexto).
 - **[aula 1]**: arquivos desta aula, o exemplo da conta bancária.
 - **[aula 2]**, **[aula 3]** e **[aula 4]**: arquivos das próximas aulas (repository, service e controller). **Já estão no projeto**, mas só são explicados em [proximas-aulas-testes.md](proximas-aulas-testes.md). Eles só **acrescentam** código: nenhum arquivo `[aula 1]` depende deles ou foi alterado por eles.
 - As pastas `.github`, `.theia`, `.vscode` e `target` e o arquivo `.gitignore` foram omitidos da árvore por serem do ambiente ou gerados.
@@ -636,7 +624,7 @@ Sem delta, `assertEquals(0.3, 0.1 + 0.2)` falharia, mesmo a conta estando "certa
 
 Se o terceiro argumento for esquecido com `double`, o JUnit compara com igualdade exata, e isso causa falhas inesperadas.
 
-**Qual valor escolher.** O delta deve ser pequeno o bastante para pegar erros reais e grande o bastante para ignorar o arredondamento. Para dinheiro, `0.01` (um centavo) é comum. No `CalcularProdutoTest` do slide foi usado `0.01`, e neste exemplo `0.001`. Ambos funcionam para esses valores.
+**Qual valor escolher.** O delta deve ser pequeno o bastante para pegar erros reais e grande o bastante para ignorar o arredondamento. Para dinheiro, `0.01` (um centavo) é comum. No exemplo da apresentação `Exemplos de testes.pptx` foi usado `0.01`, e neste exemplo `0.001`. Ambos funcionam para esses valores.
 
 > Em sistemas financeiros de verdade, o ideal é nem usar `double`, e sim `BigDecimal`, que é exato. Aí o delta deixa de ser necessário. Neste exemplo `double` foi mantido para ficar simples e para poder explicar o delta.
 

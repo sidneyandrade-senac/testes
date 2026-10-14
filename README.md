@@ -4,21 +4,7 @@ Projeto de estudo da unidade curricular de testes (SENAC, Tecnologia em Análise
 
 ## O que o projeto contém
 
-O projeto tem duas partes.
-
-**1. Exemplos do slide** (`Exemplos de testes.pptx`)
-
-Reprodução do código mostrado na apresentação: um cadastro de clientes, usuários e produtos, com os respectivos testes.
-
-| Classe testada | Teste | O que mostra |
-|---|---|---|
-| `ClienteController` (lê `clientes.json`) | `ClienteControllerTest` | Estrutura básica de um teste, `@Test` e asserts |
-| `UserController` (valida e-mail e senha) | `UserControllerTest` | `assertTrue` e `assertFalse` em regras booleanas |
-| `CalculaTotal` | `CalcularProdutoTest` | Comparação de `double` com `delta` |
-
-**2. Exemplo didático da conta bancária**
-
-Um exemplo construído para ensinar testes **por etapas**. A classe `ContaBancaria` carrega as próprias regras de negócio (modelo rico), e cada aula acrescenta uma camada e um tipo de teste novo, **sem alterar os testes das aulas anteriores**.
+O projeto é um **exemplo didático de testes**, construído por etapas em torno de uma conta bancária. A classe `ContaBancaria` carrega as próprias regras de negócio (modelo rico), e cada aula acrescenta uma camada e um tipo de teste novo, **sem alterar os testes das aulas anteriores**.
 
 | Aula | Camada | Tipo de teste |
 |---|---|---|
@@ -28,6 +14,8 @@ Um exemplo construído para ensinar testes **por etapas**. A classe `ContaBancar
 | **4** | `ContaController` e `ApiExceptionHandler` | Camada web (`@WebMvcTest` e `MockMvc`) |
 
 A ideia que organiza as aulas: **cada teste cobre uma responsabilidade, e uma regra nunca é testada em dois lugares.**
+
+A apresentação original (`Exemplos de testes.pptx`) continua na pasta. O código dos prints dela (clientes, usuários e produto) foi removido do projeto, e o exemplo da conta bancária o substitui.
 
 ## Documentação
 
@@ -59,20 +47,18 @@ Para rodar uma classe específica:
 .\mvnw test -Dtest=ContaBancariaTest
 ```
 
-Resultado esperado: `Tests run: 51, Failures: 0, Errors: 0, Skipped: 1` e `BUILD SUCCESS`. O teste ignorado (`@Disabled`) é o exemplo de teste que falha de propósito, usado nas demonstrações em aula.
+Resultado esperado: `Tests run: 42, Failures: 0, Errors: 0, Skipped: 1` e `BUILD SUCCESS`. O teste ignorado (`@Disabled`) é o exemplo de teste que falha de propósito, usado nas demonstrações em aula.
 
 ## Estrutura resumida
 
 ```
 src/
 ├── main/java/com/example/demo/
-│   ├── controller/   ClienteController, UserController, ContaController, ApiExceptionHandler
+│   ├── controller/   ContaController, ApiExceptionHandler
 │   ├── dto/          CriarContaDTO, OperacaoDTO, ContaDTO
 │   ├── entity/       ContaBancaria
-│   ├── model/        Cliente, Produto, User
 │   ├── repository/   ContaRepository
-│   ├── service/      ContaService
-│   └── util/         CalculaTotal
+│   └── service/      ContaService
 └── test/java/com/example/demo/
     └── (um teste para cada camada acima)
 ```
